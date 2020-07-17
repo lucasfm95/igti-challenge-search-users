@@ -1,2 +1,2 @@
-# igti-challerge-search-users
-App to challerge igti
+# igti-challenge-search-users
+App to challenge igti
