@@ -80,7 +80,7 @@ function renderUsers(users) {
         divImg.appendChild(img);
 
         let spanInfoUser = document.createElement("span");
-        spanInfoUser.textContent = `${user.name}, ${user.age} anos`;
+        spanInfoUser.textContent = `${user.name}, ${user.age} y.o`;
 
         let divInfoUser = document.createElement("div");
         divInfoUser.className = "div-inline";
@@ -93,6 +93,45 @@ function renderUsers(users) {
 
         divUsers.appendChild(divUser);
     });
+
+    renderStatistics(users);
+}
+
+function renderStatistics(users) {
+
+    let amountFemale = users.filter(user => user.gender === "female").length;
+    let amountMale = users.filter(user => user.gender === "male").length;
+    let totalAges = users.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.age;
+    }, 0);
+
+    let average = totalAges > 0 ? (totalAges / users.length) : 0;
+
+    let pAmountFemale = document.createElement("p");
+    pAmountFemale.textContent = `Female: ${amountFemale}`;
+
+    let pAmountmale = document.createElement("p");
+    pAmountmale.textContent = `Male: ${amountMale}`;
+
+    let pTotalAges = document.createElement("p");
+    pTotalAges.textContent = `Total Ages: ${totalAges}`;
+
+    let pAverage = document.createElement("p");
+    pAverage.textContent = `Avarage Ages: ${average}`;
+
+    let divStatistics = document.createElement("div");
+    divStatistics.appendChild(pAmountFemale);
+    divStatistics.appendChild(pAmountmale);
+    divStatistics.appendChild(pTotalAges);
+    divStatistics.appendChild(pAverage);
+
+    let h2 = document.createElement("h2");
+    h2.textContent = "Statistics";
+
+    let usersStatistics = document.getElementById("users-statistics");
+    usersStatistics.innerHTML = "";
+    usersStatistics.appendChild(h2);
+    usersStatistics.appendChild(divStatistics);
 }
 
 

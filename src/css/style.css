@@ -5,6 +5,9 @@ body {
 h1, h2 {
     text-align: center;
 }
+ p {
+     margin: 20px;
+ }
 
 #form-user {
     margin-bottom: 10px;
@@ -17,8 +20,7 @@ h1, h2 {
 #users {
     display: inline-block;
     width: 500px;
-    border: 0.1px;
-    border-style: solid;
+
     margin-right: 10px;
 }
 
@@ -26,8 +28,10 @@ h1, h2 {
     display: inline-block;
     width: 500px;
     height: 250px;
-    border: 0.1px;
-    border-style: solid;
+}
+
+form {
+    text-align: center;
 }
 
 .user {
